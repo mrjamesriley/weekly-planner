@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="planner">
+  <head>
+    <title>Week Planner</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/planner.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.8.0/lodash.js"></script>
+    <script src="js/angular-rails-resource.js"></script>
+  </head>
+  <body ng-controller="MainController">
+
+    <h1>Weekly Planner</h1>
+
+    <table class="planner-table">
+      <thead>
+        <tr>
+          <th ng-repeat="day in days">{{ day.name }}</th>
+          <th>Topics</th>
+          <th></th>
+        <tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td ng-repeat="day in days">
+            <lp-task ng-repeat="task in tasksForDay(day)" />
+          </td>
+          <td ng-controller="TopicsPanelController">
+            <div class="topic btn btn-default" ng-click="showAll()">All</div>
+            <div class="topic btn btn-default" ng-click="showNone()">None</div>
+
+            <lp-topic ng-repeat="topic in topics" />
+          </td>
+
+          <td>
+            <lp-task-form />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+      <p><button class="btn btn-default" ng-click="saveTasks()">Save changes</button></p>
+
+      <script src="js/planner.js"></script>
+      <script src="js/planner-directives.js"></script>
+      <script src="js/planner-controllers.js"></script>
+      <script src="js/planner-services.js"></script>
+  </body>
+</html>

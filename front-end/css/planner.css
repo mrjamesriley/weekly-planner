@@ -1,0 +1,40 @@
+body {
+  padding: 20px; }
+
+.planner-table {
+  margin-left: -10px; }
+  .planner-table td, .planner-table th {
+    padding: 10px;
+    width: 150px;
+    vertical-align: top; }
+
+.topic {
+  display: block;
+  margin-bottom: 5px;
+  width: 100px; }
+  .topic.topic--visible {
+    background-color: #DAFCDA; }
+
+.task {
+  font-size: 0.8em; }
+  .task.task--study {
+    background-color: #FFEED0; }
+  .task.task--gym {
+    background-color: #D5F2FF; }
+  .task.task--food {
+    background-color: #FFFFD3; }
+
+.add-task-form {
+  border: 1px dashed black;
+  width: 270px;
+  padding: 20px; }
+  .add-task-form td {
+    padding: 5px; }
+  .add-task-form input, .add-task-form select {
+    width: 150px; }
+  .add-task-form .ng-dirty.ng-invalid {
+    border: 1px solid red; }
+  .add-task-form .ng-dirty.ng-valid {
+    border: 1px solid green; }
+
+/*# sourceMappingURL=planner.css.map */

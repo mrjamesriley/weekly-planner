@@ -1,0 +1,30 @@
+<form class="add-task-form" name="addTaskForm"
+  ng-submit="addTask()" ng-controller="AddTaskController" novalidate>
+  <h4>Add New Task</h4>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input name="name" placeholder="9pm Major Noms" ng-model="taskName" ng-minlength=5 required /></td>
+    </tr>
+    <tr>
+      <td>Topic</td><td>
+        <select ng-model="taskTopic" name="topic"
+                                     ng-options="topic.name for topic in topics">
+          <option value="">Select a Topic</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Day</td>
+      <td>
+        <select ng-model="taskDay" name="day" ng-options="day.name for day in days">
+          <option value="">Select a Day</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr><td colspan="2">
+        <button class="btn btn-default" ng-disabled="addTaskForm.$invalid">Add Task</button>
+      </td></tr>
+</form>

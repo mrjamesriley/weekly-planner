@@ -1,0 +1,38 @@
+body
+  padding: 20px
+
+.planner-table
+  margin-left: -10px
+  td, th
+    padding: 10px
+    width: 150px
+    vertical-align: top
+
+.topic
+  display: block
+  margin-bottom: 5px
+  width: 100px
+  &.topic--visible
+    background-color: #DAFCDA
+
+.task
+  font-size: 0.8em
+  &.task--study
+    background-color: #FFEED0
+  &.task--gym
+    background-color: #D5F2FF
+  &.task--food
+    background-color: #FFFFD3
+
+.add-task-form
+  border: 1px dashed black
+  width: 270px
+  padding: 20px
+  td
+    padding: 5px
+  input, select
+    width: 150px
+  .ng-dirty.ng-invalid
+    border: 1px solid red
+  .ng-dirty.ng-valid
+    border: 1px solid green
