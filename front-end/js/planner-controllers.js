@@ -4,8 +4,8 @@ app.controller('MainController', function($scope, Topic, Day, Planner) {
   Day.getDays().success(function(data) { $scope.days = data });
   Topic.getTopics().success(function(data) { $scope.topics = data });
 
-  Planner.get(1).then(function(data) {
-    $scope.planner = data;
+  Planner.get(1).then(function(planner) {
+    $scope.planner = planner;
     $scope.tasks = $scope.planner.tasks;
     window.planner = $scope.planner;
   });
@@ -28,6 +28,7 @@ app.controller('MainController', function($scope, Topic, Day, Planner) {
 
   $scope.saveTasks = function() {
     console.log('hit the save tasks button');
+    $scope.planner.update();
   }
 
 });
