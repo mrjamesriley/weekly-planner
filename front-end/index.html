@@ -23,7 +23,7 @@
       <tbody>
         <tr>
           <td ng-repeat="day in days">
-            <lp-task ng-repeat="task in tasksForDay(day)" />
+            <lp-task ng-repeat="task in tasks | filter:{ daysIds: day.id }" />
           </td>
           <td ng-controller="TopicsPanelController">
             <div class="topic btn btn-default" ng-click="showAll()">All</div>
@@ -45,5 +45,8 @@
       <script src="js/planner-directives.js"></script>
       <script src="js/planner-controllers.js"></script>
       <script src="js/planner-services.js"></script>
+
+      <!-- live reload script -->
+      <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
   </body>
 </html>

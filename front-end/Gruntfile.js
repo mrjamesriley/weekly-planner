@@ -22,4 +22,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-http-server');
 
+  grunt.registerTask('server', ['http-server']);
+
 };

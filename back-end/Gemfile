@@ -13,6 +13,8 @@ gem 'active_model_serializers'
 
 gem 'pry'
 
+gem 'rack-cors', require: 'rack/cors'
+
 
 
 

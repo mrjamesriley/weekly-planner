@@ -2,7 +2,7 @@ app.constant('baseResourceURL', 'http://localhost:4000/');
 
 app.factory('Planner', function(railsResourceFactory, baseResourceURL) {
   return railsResourceFactory({
-    url: baseResourceURL + '/planners',
+    url: baseResourceURL + 'planners',
     name: 'planner'
   });
 });
