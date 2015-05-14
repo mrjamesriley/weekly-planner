@@ -22,6 +22,6 @@ class PlannersController < ApplicationController
 
     def planner_params
       params.require(:planner).permit(:name,
-        { tasks_attributes: [:id, :name, :topic_id, days_ids: []] })
+        { tasks_attributes: [:id, :name, :topic_id, :start_time, :_destroy, days_ids: []] })
     end
 end

@@ -22,13 +22,12 @@ app.controller('MainController', function($scope, Topic, Day, Planner) {
     return 'task--' + CSSClass;
   }
 
-  $scope.showTask = function(task) {
-    return $scope.topicForTask(task).visible;
+  $scope.saveTasks = function() {
+    $scope.planner.update();
   }
 
-  $scope.saveTasks = function() {
-    console.log('hit the save tasks button');
-    $scope.planner.update();
+  $scope.deleteTask = function(task) {
+    task._destroy = 1;
   }
 
 });

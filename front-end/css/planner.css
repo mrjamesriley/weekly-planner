@@ -13,16 +13,26 @@ body {
   margin-bottom: 5px;
   width: 100px; }
   .topic.topic--visible {
-    background-color: #DAFCDA; }
+    background-color: #dafcda; }
 
 .task {
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  position: relative;
+  padding-top: 10px; }
   .task.task--study {
-    background-color: #FFEED0; }
+    background-color: #ffeed0; }
   .task.task--gym {
-    background-color: #D5F2FF; }
+    background-color: #d5f2ff; }
   .task.task--food {
-    background-color: #FFFFD3; }
+    background-color: #ffffd3; }
+  .task .task__trash {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: #efefef;
+    cursor: pointer; }
+    .task .task__trash:hover {
+      color: black; }
 
 .add-task-form {
   border: 1px dashed black;
@@ -36,5 +46,3 @@ body {
     border: 1px solid red; }
   .add-task-form .ng-dirty.ng-valid {
     border: 1px solid green; }
-
-/*# sourceMappingURL=planner.css.map */

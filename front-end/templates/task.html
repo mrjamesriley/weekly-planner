@@ -1,5 +1,9 @@
-<div class="panel panel-default task {{ taskCSSClass(task) }}"
-   ng-show="showTask(task)">
+<div class="panel panel-default task {{ taskCSSClass(task) }}" ng-if="task._destroy != 1">
+
+  <div class="task__trash" ng-click="deleteTask(task)">
+    <span class="glyphicon glyphicon-trash"></span>
+  </div>
+
   <div class="panel-body">
     {{ task.startTime | date: "shortTime" | lowercase }}
     <br />

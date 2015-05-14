@@ -17,12 +17,23 @@ body
 
 .task
   font-size: 0.8em
+  position: relative
+  padding-top: 10px
   &.task--study
     background-color: #FFEED0
   &.task--gym
     background-color: #D5F2FF
   &.task--food
     background-color: #FFFFD3
+  .task__trash
+    position: absolute
+    right: 5px
+    top: 5px
+    color: #EFEFEF
+    cursor: pointer
+    &:hover
+      color: black
+
 
 .add-task-form
   border: 1px dashed black
