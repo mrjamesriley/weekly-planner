@@ -1,6 +1,8 @@
 <div class="panel panel-default task {{ taskCSSClass(task) }}"
    ng-show="showTask(task)">
   <div class="panel-body">
+    {{ task.startTime | date: "shortTime" | lowercase }}
+    <br />
     {{ task.name }}
   </div>
 </div>

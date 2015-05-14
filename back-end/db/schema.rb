@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511064707) do
+ActiveRecord::Schema.define(version: 20150514062029) do
 
   create_table "days", force: true do |t|
     t.string   "name"
@@ -28,10 +28,11 @@ ActiveRecord::Schema.define(version: 20150511064707) do
   create_table "tasks", force: true do |t|
     t.string   "name"
     t.integer  "topic_id"
-    t.string   "days_ids"
+    t.text     "days_ids"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "planner_id"
+    t.time     "start_time"
   end
 
   create_table "topics", force: true do |t|
