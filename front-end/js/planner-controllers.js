@@ -1,5 +1,7 @@
 app.controller('MainController', function($scope, Topic, Day, Planner) {
 
+  $scope.today = new Date();
+
   // retrieve initial data from API
   Day.getDays().success(function(data) { $scope.days = data });
   Topic.getTopics().success(function(data) { $scope.topics = data });
@@ -30,6 +32,19 @@ app.controller('MainController', function($scope, Topic, Day, Planner) {
     task._destroy = 1;
   }
 
+  $scope.defaultTask = {
+    name: 'Yodelling',
+    startTime: '2000-01-01T06:00:00Z',
+    daysIds: [1],
+    topicId: 1
+  }
+
+  $scope.taskForm = $scope.defaultTask;
+
+  $scope.editTask = function(task) {
+    $scope.taskForm = task;
+  }
+
 });
 
 app.controller('TopicsPanelController', ['$scope', function($scope) {
@@ -42,18 +57,12 @@ app.controller('TopicsPanelController', ['$scope', function($scope) {
 app.controller('AddTaskController', ['$scope', function($scope) {
 
   $scope.addTask = function() {
+    $scope.tasks.push($scope.taskForm);
+    $scope.taskForm = $scope.defaultTask;
+  }
 
-    var topic = _.find($scope.topics, function(topic) { return topic.name == $scope.taskTopic.name });
-    var day   = _.find($scope.days, function(day) { return day.name == $scope.taskDay.name });
-
-    $scope.tasks.push({
-      name: $scope.taskName,
-      topicId: topic.id,
-      daysIds: [day.id]
-    });
-
-    $scope.taskName  = '';
-    $scope.taskTopic = '';
+  $scope.switchToAdd = function() {
+    $scope.taskForm = $scope.defaultTask;
   }
 
 }]);

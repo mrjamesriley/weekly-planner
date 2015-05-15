@@ -1,4 +1,5 @@
-<div class="panel panel-default task {{ taskCSSClass(task) }}" ng-if="task._destroy != 1">
+<div class="panel panel-default task {{ taskCSSClass(task) }}"
+  ng-if="task._destroy != 1" ng-click="editTask(task)">
 
   <div class="task__trash" ng-click="deleteTask(task)">
     <span class="glyphicon glyphicon-trash"></span>

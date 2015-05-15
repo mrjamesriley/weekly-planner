@@ -1,15 +1,22 @@
-<form class="add-task-form" name="addTaskForm"
+<form class="add-task-form" name="addTaskForm" ng-class="{ editing: taskForm.id }"
   ng-submit="addTask()" ng-controller="AddTaskController" novalidate>
-  <h4>Add New Task</h4>
+
+  <button class="btn btn-default add-task-form__switch_to_add" ng-click="switchToAdd()">Add New Task</button>
+
+  <h4>{{ taskForm.id ? 'Edit' : 'Add New' }} Task</h4>
   <table>
     <tr>
       <td>Name</td>
-      <td><input name="name" placeholder="9pm Major Noms" ng-model="taskName" ng-minlength=5 required /></td>
+      <td><input name="name" placeholder="9pm Major Noms"
+        ng-model="taskForm.name" ng-minlength=5 required /></td>
+    </tr>
+    <tr>
+      <td>Start time</td>
+      <td><input placeholder="HH:MM" ng-model="taskForm.startTime" /></td>
     </tr>
     <tr>
       <td>Topic</td><td>
-        <select ng-model="taskTopic" name="topic"
-                                     ng-options="topic.name for topic in topics">
+        <select ng-model="taskForm.topicId" ng-options="topic.id as topic.name for topic in topics">
           <option value="">Select a Topic</option>
         </select>
       </td>
@@ -18,13 +25,15 @@
     <tr>
       <td>Day</td>
       <td>
-        <select ng-model="taskDay" name="day" ng-options="day.name for day in days">
-          <option value="">Select a Day</option>
-        </select>
+        <label ng-repeat="day in days">
+          {{ day.name | limitTo:1 }}
+          <br />
+          <input type="checkbox" checklist-model="taskForm.daysIds" checklist-value="day.id" />
+        </label>
       </td>
     </tr>
 
-    <tr><td colspan="2">
+    <tr class="add-task-form__submit-row"><td colspan="2">
         <button class="btn btn-default" ng-disabled="addTaskForm.$invalid">Add Task</button>
       </td></tr>
 </form>

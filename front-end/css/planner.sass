@@ -19,6 +19,7 @@ body
   font-size: 0.8em
   position: relative
   padding-top: 10px
+  cursor: pointer
   &.task--study
     background-color: #FFEED0
   &.task--gym
@@ -37,13 +38,27 @@ body
 
 .add-task-form
   border: 1px dashed black
-  width: 270px
+  width: 300px
   padding: 20px
+  position: relative
   td
     padding: 5px
-  input, select
+  input[type="text"], select
     width: 150px
+  input[type="checkbox"]
+    margin-right: 10px
   .ng-dirty.ng-invalid
     border: 1px solid red
   .ng-dirty.ng-valid
     border: 1px solid green
+  .add-task-form__switch_to_add
+    display: none
+    position: absolute
+    right: 20px
+    top: 20px
+  &.editing
+    padding-top: 60px
+    .add-task-form__switch_to_add
+      display: block
+    .add-task-form__submit-row
+      display: none

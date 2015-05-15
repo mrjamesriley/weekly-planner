@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app="planner">
   <head>
-    <title>Week Planner</title>
+    <title>Weekly Planner</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/planner.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
@@ -11,6 +11,8 @@
   <body ng-controller="MainController">
 
     <h1>Weekly Planner</h1>
+    <p>Today is {{ today | date: 'EEEE d MMMM'}}</p>
+    <br />
 
     <table class="planner-table">
       <thead>
@@ -18,7 +20,7 @@
           <th ng-repeat="day in days">{{ day.name }}</th>
           <th>Topics</th>
           <th></th>
-        <tr>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -41,6 +43,7 @@
 
       <p><button class="btn btn-default" ng-click="saveTasks()">Save changes</button></p>
 
+      <script src="third-party/checklist-model-0.2.4.js"></script>
       <script src="js/planner.js"></script>
       <script src="js/planner-directives.js"></script>
       <script src="js/planner-controllers.js"></script>
