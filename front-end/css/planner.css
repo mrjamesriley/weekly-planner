@@ -13,7 +13,7 @@ body {
   margin-bottom: 5px;
   width: 100px; }
   .topic.topic--visible {
-    background-color: #dafcda; }
+    background-color: #DAFCDA; }
 
 .task {
   font-size: 0.8em;
@@ -21,16 +21,18 @@ body {
   padding-top: 10px;
   cursor: pointer; }
   .task.task--study {
-    background-color: #ffeed0; }
+    background-color: #FFEED0; }
   .task.task--gym {
-    background-color: #d5f2ff; }
+    background-color: #D5F2FF; }
   .task.task--food {
-    background-color: #ffffd3; }
+    background-color: #FFFFD3; }
+  .task.task--guitar {
+    background-color: #F6D3FF; }
   .task .task__trash {
     position: absolute;
     right: 5px;
     top: 5px;
-    color: #efefef;
+    color: #EFEFEF;
     cursor: pointer; }
     .task .task__trash:hover {
       color: black; }
@@ -61,3 +63,5 @@ body {
       display: block; }
     .add-task-form.editing .add-task-form__submit-row {
       display: none; }
+
+/*# sourceMappingURL=planner.css.map */

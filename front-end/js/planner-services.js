@@ -1,10 +1,21 @@
-app.constant('baseResourceURL', 'http://localhost:4000/');
+app.constant('baseResourceURL', 'http://localhost:3000/');
 
 app.factory('Planner', function(railsResourceFactory, baseResourceURL) {
-  return railsResourceFactory({
+
+  var plannerResource = railsResourceFactory({
     url: baseResourceURL + 'planners',
     name: 'planner'
   });
+
+  plannerResource.prototype.visibleTasks = function(topics) {
+    return _.select(this.tasks, function(task) {
+      var tasksTopic = _.find(topics, function(topic) { return topic.id == task.topicId });
+      return !task._destroy && tasksTopic.visible;
+    });
+  }
+
+  return plannerResource;
+
 });
 
 app.factory('Day', function($http, baseResourceURL) {

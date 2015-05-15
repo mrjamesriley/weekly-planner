@@ -53,7 +53,6 @@ app.controller('TopicsPanelController', ['$scope', function($scope) {
   $scope.toggleTopic = function(topic) { topic.visible = !topic.visible; }
 }]);
 
-
 app.controller('AddTaskController', ['$scope', function($scope) {
 
   $scope.addTask = function() {

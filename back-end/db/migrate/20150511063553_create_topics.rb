@@ -2,7 +2,7 @@ class CreateTopics < ActiveRecord::Migration
   def change
     create_table :topics do |t|
       t.string :name
-      t.boolean :visible
+      t.boolean :visible, default: true
 
       t.timestamps
     end

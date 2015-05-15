@@ -9,6 +9,34 @@ The Front End app is written in `AngularJS`, the backend using the lightweight `
 
 A `ReactJS` implementation is on the cards, followed with a React Native implementation
 
-#### Usage
 
-Details on the way.
+##### Requirements
+
+The following set-up assumes you are already set up with:
+
+* Ruby 2
+* NodeJS
+* MySQL
+
+
+#### Set up
+
+
+##### Back-end
+
+1. Enter the back-end folder `cd back-end`
+2. `bundle install` to install all Gems
+3. Run `rake db:create` to create the database, tables, and to populate with data
+
+
+##### Front-end
+
+1. Enter the front-end folder `cd front-end`
+2. `npm install` to install Node package dependencies
+
+
+#### Running the app
+
+1. Run `rails server` in back-end folder to start API server
+2. Run `grunt server` in front-end folder to start web app server
+3. Visit `http://localhost:8282`

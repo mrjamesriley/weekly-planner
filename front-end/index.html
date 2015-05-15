@@ -25,7 +25,7 @@
       <tbody>
         <tr>
           <td ng-repeat="day in days">
-            <lp-task ng-repeat="task in tasks | filter:{ daysIds: day.id } | orderBy: 'startTime'" />
+            <lp-task ng-repeat="task in planner.visibleTasks(topics) | filter:{ daysIds: day.id } | orderBy: 'startTime'" />
           </td>
           <td ng-controller="TopicsPanelController">
             <div class="topic btn btn-default" ng-click="showAll()">All</div>

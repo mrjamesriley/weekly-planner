@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150514062029) do
   create_table "tasks", force: true do |t|
     t.string   "name"
     t.integer  "topic_id"
-    t.text     "days_ids"
+    t.string   "days_ids"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "planner_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150514062029) do
 
   create_table "topics", force: true do |t|
     t.string   "name"
-    t.boolean  "visible"
+    t.boolean  "visible",    default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
