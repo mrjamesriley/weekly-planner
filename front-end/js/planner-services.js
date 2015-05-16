@@ -9,10 +9,12 @@ app.factory('Planner', function(railsResourceFactory, baseResourceURL) {
     name: 'planner'
   });
 
-  plannerResource.prototype.visibleTasks = function(topics) {
+  plannerResource.prototype.visibleTasksForDay = function(day, topics) {
     return _.select(this.tasks, function(task) {
-      var tasksTopic = _.find(topics, function(topic) { return topic.id == task.topicId });
-      return !task._destroy && tasksTopic.visible;
+      if(task._destroy || !_.contains(task.daysIds, day.id)) return false;
+
+      var topic = _.find(topics, function(topic) { return topic.id == task.topicId });
+      return topic.visible;
     });
   }
 
