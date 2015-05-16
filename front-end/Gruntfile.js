@@ -15,12 +15,18 @@ module.exports = function(grunt) {
         host: '0.0.0.0',
         showDir: true
       }
+    },
+    karma: {
+      unit: {
+        configFile: 'test/karma.conf.js'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-http-server');
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('server', ['http-server']);
 

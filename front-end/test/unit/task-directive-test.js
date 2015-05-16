@@ -1,7 +1,5 @@
 describe('task directive', function() {
-
-  beforeEach(module('planner'));
-  beforeEach(module('templates'));
+  beforeEach(module('planner', 'templates'));
 
   var $compile, $rootScope;
 
