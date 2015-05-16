@@ -1,4 +1,4 @@
-var app = angular.module('planner',
+angular.module('planner',
   [
     'rails',
     'checklist-model'

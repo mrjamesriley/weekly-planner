@@ -1,3 +1,5 @@
+var app = angular.module('planner');
+
 app.controller('MainController', function($scope, Topic, Day, Planner) {
 
   $scope.today = new Date();

@@ -1,3 +1,5 @@
+var app = angular.module('planner');
+
 app.constant('baseResourceURL', 'http://localhost:3000/');
 
 app.factory('Planner', function(railsResourceFactory, baseResourceURL) {

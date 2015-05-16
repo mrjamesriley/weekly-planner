@@ -1,3 +1,5 @@
+var app = angular.module('planner');
+
 app.directive('lpTask', function() {
   return {
     restrict: 'E',
