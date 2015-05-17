@@ -1,7 +1,5 @@
-<div class="panel panel-default task {{ taskCSSClass(task) }}"
-   ng-click="editTask(task)">
-
-  <div class="task__trash" ng-click="deleteTask(task, day)">
+<div class="panel panel-default task {{ task.cssClass(topics) }}" ng-click="editTask(task)">
+  <div class="task__trash" ng-click="task.deleteTask(day)">
     <span class="glyphicon glyphicon-trash"></span>
   </div>
 

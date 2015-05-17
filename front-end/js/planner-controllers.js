@@ -2,7 +2,7 @@
 
 var app = angular.module('planner');
 
-app.controller('MainController', function($scope, Topic, Day, Planner, $timeout) {
+app.controller('MainController', function($scope, Topic, Day, Planner, Task, $timeout) {
 
   $scope.today = new Date();
 
@@ -16,18 +16,6 @@ app.controller('MainController', function($scope, Topic, Day, Planner, $timeout)
     window.planner = $scope.planner;
   });
 
-  $scope.topicForTask = function(task) {
-    return _.find($scope.topics, function(topic) {
-      return topic.id == task.topicId;
-    })
-  }
-
-  $scope.taskCSSClass = function(task) {
-    var topic = $scope.topicForTask(task)
-    var CSSClass = topic ? topic.name.toLowerCase() : topic;
-    return 'task--' + CSSClass;
-  }
-
   $scope.saveTasks = function() {
     $scope.saving = true;
     $scope.planner.update().then(function() {
@@ -35,19 +23,7 @@ app.controller('MainController', function($scope, Topic, Day, Planner, $timeout)
     });
   }
 
-  $scope.deleteTask = function(task, day) {
-    task.daysIds = _.without(task.daysIds, day.id);
-    if(task.daysIds.length === 0) task._destroy = 1;
-  }
-
-  $scope.defaultTask = {
-    name: 'Snow Boarding',
-    startTime: '08:00:00',
-    daysIds: [1],
-    topicId: 1
-  }
-
-  $scope.taskForm = $scope.defaultTask;
+  $scope.taskForm = Task.defaultTask;
 
   $scope.editTask = function(task) {
     $scope.taskForm = task;
