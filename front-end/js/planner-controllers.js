@@ -1,6 +1,8 @@
+(function() {
+
 var app = angular.module('planner');
 
-app.controller('MainController', function($scope, Topic, Day, Planner) {
+app.controller('MainController', function($scope, Topic, Day, Planner, $timeout) {
 
   $scope.today = new Date();
 
@@ -27,16 +29,20 @@ app.controller('MainController', function($scope, Topic, Day, Planner) {
   }
 
   $scope.saveTasks = function() {
-    $scope.planner.update();
+    $scope.saving = true;
+    $scope.planner.update().then(function() {
+      $timeout(function() { $scope.saving = false }, 500);
+    });
   }
 
-  $scope.deleteTask = function(task) {
-    task._destroy = 1;
+  $scope.deleteTask = function(task, day) {
+    task.daysIds = _.without(task.daysIds, day.id);
+    if(task.daysIds.length === 0) task._destroy = 1;
   }
 
   $scope.defaultTask = {
-    name: 'Yodelling',
-    startTime: '2000-01-01T06:00:00Z',
+    name: 'Snow Boarding',
+    startTime: '08:00:00',
     daysIds: [1],
     topicId: 1
   }
@@ -67,3 +73,5 @@ app.controller('AddTaskController', ['$scope', function($scope) {
   }
 
 }]);
+
+})();

@@ -1,4 +1,3 @@
-<div class="topic btn btn-default" ng-class="{ 'topic--visible': topic.visible }"
-  ng-click="toggleTopic(topic)">
-  {{ topic.name }}
-</div>
+<li class="topics-list__topic" ng-class="{ 'active': topic.visible }" ng-click="toggleTopic(topic)">
+  <a href="#">{{ topic.name }}</a>
+</li>

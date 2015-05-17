@@ -21,7 +21,7 @@ guitar = Topic.create name: 'Guitar'
 planner = Planner.create name: 'Main Planner'
 
 planner.tasks.create [
-  { name: 'Guitar session', start_time: '8:00', topic: study, days_ids: [mon, tue, wed, thur, fri].map(&:id) },
+  { name: 'Guitar session', start_time: '8:00', topic: guitar, days_ids: [mon, tue, wed, thur, fri].map(&:id) },
   { name: 'Portuguese learning', start_time: '19:30', topic: study, days_ids: [mon.id, wed.id] },
-  { name: 'Gym workout', start_time: '12:00', topic: guitar, days_ids: [tue.id, thur.id] },
+  { name: 'Gym workout', start_time: '12:00', topic: gym, days_ids: [tue.id, thur.id] },
 ]

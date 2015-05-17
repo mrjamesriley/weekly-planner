@@ -1,6 +1,10 @@
-angular.module('planner',
-  [
-    'rails',
-    'checklist-model'
-  ]
-);
+(function() {
+
+  angular.module('planner',
+    [
+      'rails',
+      'checklist-model'
+    ]
+  );
+
+})();

@@ -17,10 +17,18 @@ describe('main controller', function() {
   });
 
   describe('$scope.deleteTask', function() {
-    it('should set the task as marked for deletion', function() {
-      var task = { name: 'Singing' }
-      $scope.deleteTask(task);
+    it('should set the task as marked for deletion if it exists for only one day', function() {
+      var task = { name: 'Singing', daysIds: [2] };
+      var day  = { id: 2 };
+      $scope.deleteTask(task, day);
       expect(task._destroy).toBe(1);
+    });
+
+    it ('should remove the unset the given day for the task', function() {
+      var task = { name: 'Eating', daysIds: [1,2] };
+      var day  = { id: 2 };
+      $scope.deleteTask(task, day);
+      expect(_.isEqual(task.daysIds, [1])).toBeTruthy();
     });
   });
 

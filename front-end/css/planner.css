@@ -8,12 +8,10 @@ body {
     width: 150px;
     vertical-align: top; }
 
-.topic {
-  display: block;
-  margin-bottom: 5px;
-  width: 100px; }
-  .topic.topic--visible {
-    background-color: #DAFCDA; }
+.topics-list .topics-list__topic {
+  margin-right: 5px; }
+  .topics-list .topics-list__topic.topic--visible {
+    background-color: #E4FFE4; }
 
 .task {
   font-size: 0.8em;
@@ -21,13 +19,13 @@ body {
   padding-top: 10px;
   cursor: pointer; }
   .task.task--study {
-    background-color: #FFEED0; }
+    border: 2px solid #FFEED0; }
   .task.task--gym {
-    background-color: #D5F2FF; }
+    border: 2px solid #D5F2FF; }
   .task.task--food {
-    background-color: #FFFFD3; }
+    border: 2px solid #FFFFD3; }
   .task.task--guitar {
-    background-color: #F6D3FF; }
+    border: 2px solid #F6D3FF; }
   .task .task__trash {
     position: absolute;
     right: 5px;

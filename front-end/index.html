@@ -8,14 +8,18 @@
   <body ng-controller="MainController">
 
     <h1>Weekly Planner</h1>
-    <p>Today is {{ today | date: 'EEEE d MMMM'}}</p>
+    <p>Today is {{ today | date: 'EEEE d MMMM y'}}</p>
+    <br />
+
+    <ul class="nav nav-pills topics-list" ng-controller="TopicsPanelController">
+      <lp-topic ng-repeat="topic in topics"></lp-topic>
+    </ul>
     <br />
 
     <table class="planner-table">
       <thead>
         <tr>
           <th ng-repeat="day in days">{{ day.name }}</th>
-          <th>Topics</th>
           <th></th>
         </tr>
       </thead>
@@ -24,13 +28,6 @@
           <td ng-repeat="day in days">
             <lp-task ng-repeat="task in planner.visibleTasksForDay(day, topics) | orderBy: 'startTime'" />
           </td>
-          <td ng-controller="TopicsPanelController">
-            <div class="topic btn btn-default" ng-click="showAll()">All</div>
-            <div class="topic btn btn-default" ng-click="showNone()">None</div>
-
-            <lp-topic ng-repeat="topic in topics" />
-          </td>
-
           <td>
             <lp-task-form />
           </td>
@@ -38,7 +35,10 @@
       </tbody>
     </table>
 
-      <p><button class="btn btn-default" ng-click="saveTasks()">Save changes</button></p>
+      <p><button class="btn btn-success" ng-click="saveTasks()">
+        <span ng-show="!saving">Save changes</span>
+        <span ng-show="saving">Saving...</span>
+      </button></p>
 
       <script src="/bower_components/angularjs/angular.js"></script>
       <script src="/bower_components/angularjs-rails-resource/angularjs-rails-resource.js"></script>
@@ -51,6 +51,6 @@
       <script src="js/planner-services.js"></script>
 
       <!-- live reload script -->
-      <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+      <div ng-include="templates/live-reload.html"></div>
   </body>
 </html>
