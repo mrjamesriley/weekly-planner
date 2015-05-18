@@ -2,8 +2,7 @@
 <html ng-app="planner">
   <head>
     <title>Weekly Planner</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/planner.css">
+    <link rel="stylesheet" href="dist/planner.css">
   </head>
   <body ng-controller="MainController">
 
@@ -40,15 +39,7 @@
         <span ng-show="saving">Saving...</span>
       </button></p>
 
-      <script src="/bower_components/angularjs/angular.js"></script>
-      <script src="/bower_components/angularjs-rails-resource/angularjs-rails-resource.js"></script>
-      <script src="/bower_components/checklist-model/checklist-model.js"></script>
-      <script src="/bower_components/lodash/lodash.js"></script>
-
-      <script src="js/planner.js"></script>
-      <script src="js/planner-directives.js"></script>
-      <script src="js/planner-controllers.js"></script>
-      <script src="js/planner-services.js"></script>
+      <script src="dist/planner.js"></script>
 
       <!-- live reload script -->
       <div ng-include="templates/live-reload.html"></div>

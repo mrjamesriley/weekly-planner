@@ -7,7 +7,7 @@ A simple app for scheduling your week, according to your topics of interest. Wan
 #### So, what's in the box?
 
 The project consists of two key components at the moment: a thin API and a client side application.
-The Front End app is written in `AngularJS`, the backend using the lightweight `RailsAPI`.
+The front-end app is written in `AngularJS`, the back-end using the lightweight `RailsAPI`.
 
 A `ReactJS` implementation is on the cards, followed with a React Native implementation
 
