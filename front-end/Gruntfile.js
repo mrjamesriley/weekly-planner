@@ -2,19 +2,19 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     sass: {
-      dist: { files: { 'css/planner.css': 'css/planner.sass' } }
+      dist: { files: { 'assets/css/planner.css': 'assets/css/planner.sass' } }
     },
     watch: {
-      files: ['css/*.sass'],
+      files: ['assets/css/*.sass', 'assets/js/*.js'],
       tasks: ['sass', 'concat']
     },
     concat: {
       css: {
         src: [
           'bower_components/bootstrap/dist/css/bootstrap.css',
-          'css/planner.css'
+          'assets/css/planner.css'
         ],
-        dest: 'dist/planner.css'
+        dest: 'assets/dist/planner.css'
       },
       js: {
         src: [
@@ -23,10 +23,10 @@ module.exports = function(grunt) {
           'bower_components/checklist-model/checklist-model.js',
           'bower_components/angularjs/angular.js',
           'bower_components/lodash/lodash.js',
-          'js/planner.js',
-          'js/*.js'
+          'assets/js/planner.js',
+          'assets/js/*.js'
         ],
-        dest: 'dist/planner.js'
+        dest: 'assets/dist/planner.js'
       }
     },
     'http-server': {

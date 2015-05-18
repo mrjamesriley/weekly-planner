@@ -19,8 +19,8 @@ module.exports = function(config) {
       'bower_components/checklist-model/checklist-model.js',
       'bower_components/lodash/lodash.js',
       'templates/*.html',
-      'js/planner.js',
-      'js/*.js',
+      'assets/js/planner.js',
+      'assets/js/*.js',
       'test/unit/*.js'
     ],
 
