@@ -7,6 +7,7 @@
       scope: {
         task: '=',
         topics: '=',
+        day: '=',
         onEdit: '&'
       },
       restrict: 'E',
@@ -31,7 +32,8 @@
   app.directive('lpTaskForm', function() {
     return {
       scope: {
-        taskForm: '='
+        taskForm: '=',
+        onAdd: '&'
       },
       restrict: 'E',
       replace: false,

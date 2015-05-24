@@ -13,7 +13,7 @@ describe('Planner handling', function() {
   describe('Toggling topic visibility', function() {
     it('should hide all tasks for that topic on first click', function() {
       var tasksSelector, topicsTasks, firstTopic;
-      firstTopic = element(by.css('.topics-list__topic'));
+      firstTopic = element(by.binding('topic.name'));
 
       firstTopic.getText().then(function(text) {
         tasksSelector = '.planner-table .task--' + text.toLowerCase();

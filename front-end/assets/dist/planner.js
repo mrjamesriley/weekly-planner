@@ -40302,6 +40302,7 @@ angular.module('checklist-model', [])
       scope: {
         task: '=',
         topics: '=',
+        day: '=',
         onEdit: '&'
       },
       restrict: 'E',
@@ -40326,7 +40327,8 @@ angular.module('checklist-model', [])
   app.directive('lpTaskForm', function() {
     return {
       scope: {
-        taskForm: '='
+        taskForm: '=',
+        onAdd: '&'
       },
       restrict: 'E',
       replace: false,
