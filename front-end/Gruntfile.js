@@ -39,7 +39,7 @@ module.exports = function(grunt) {
     },
     karma: {
       unit: {
-        configFile: 'test/karma.conf.js'
+        configFile: 'test/unit-conf.js'
       }
     }
   });
