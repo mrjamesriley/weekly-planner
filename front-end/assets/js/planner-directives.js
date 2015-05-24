@@ -7,7 +7,7 @@
       scope: {
         task: '=',
         topics: '=',
-        onEdit: '='
+        onEdit: '&'
       },
       restrict: 'E',
       replace: true,
@@ -20,11 +20,11 @@
     return {
       scope: {
         topic: '=',
-        onToggle: '='
+        onToggle: '&'
       },
       restrict: 'E',
       replace: true,
-      templateUrl: 'templates/topic.html',
+      templateUrl: 'templates/topic.html'
     }
   });
 

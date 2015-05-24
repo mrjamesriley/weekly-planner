@@ -40302,7 +40302,7 @@ angular.module('checklist-model', [])
       scope: {
         task: '=',
         topics: '=',
-        onEdit: '='
+        onEdit: '&'
       },
       restrict: 'E',
       replace: true,
@@ -40315,11 +40315,11 @@ angular.module('checklist-model', [])
     return {
       scope: {
         topic: '=',
-        onToggle: '='
+        onToggle: '&'
       },
       restrict: 'E',
       replace: true,
-      templateUrl: 'templates/topic.html',
+      templateUrl: 'templates/topic.html'
     }
   });
 
