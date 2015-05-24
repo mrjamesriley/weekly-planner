@@ -17,7 +17,7 @@ describe('task directive', function() {
 
   describe('loading of task data in template', function() {
     it('should output the date in the short lowercased format', function() {
-      var element = $compile('<lp-task></lp-task>')($rootScope);
+      var element = $compile('<lp-task task="task"></lp-task>')($rootScope);
       $rootScope.$digest();
       expect(element.html()).toContain('8:00 am');
     });

@@ -11,7 +11,7 @@
     <br />
 
     <ul class="nav nav-pills topics-list" ng-controller="TopicsPanelController">
-      <lp-topic ng-repeat="topic in topics"></lp-topic>
+      <lp-topic ng-repeat="topic in topics" topic="topic" on-toggle="toggleTopic"></lp-topic>
     </ul>
     <br />
 
@@ -25,10 +25,10 @@
       <tbody>
         <tr>
           <td ng-repeat="day in days">
-            <lp-task ng-repeat="task in planner.visibleTasksForDay(day, topics) | orderBy: 'startTime'" />
+            <lp-task ng-repeat="task in planner.visibleTasksForDay(day, topics) | orderBy: 'startTime'" task="task" topics="topics" on-edit="editTask" />
           </td>
           <td>
-            <lp-task-form />
+            <lp-task-form task-form="taskForm" />
           </td>
         </tr>
       </tbody>
