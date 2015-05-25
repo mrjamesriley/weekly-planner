@@ -1,7 +1,11 @@
+var PlannerPage = require('./page-object.js');
+
 describe('Planner handling', function() {
 
+  var page;
+
   beforeEach(function() {
-    browser.get('http://localhost:8282');
+    page = new PlannerPage();
   });
 
   describe('Loading of Planner page', function() {
@@ -13,16 +17,14 @@ describe('Planner handling', function() {
   describe('Toggling topic visibility', function() {
     it('should hide all tasks for that topic on first click', function() {
       var tasksSelector, topicsTasks, firstTopic;
-      firstTopic = element(by.binding('topic.name'));
+      firstTopic = page.topics.first();
 
-      firstTopic.getText().then(function(text) {
-        tasksSelector = '.planner-table .task--' + text.toLowerCase();
-        topicsTasks = element.all(by.css(tasksSelector));
+      firstTopic.getText().then(function(topicName) {
+        topicsTasks = page.tasksByTopic(topicName);
 
         // first click should hide the topics tasks
         firstTopic.click();
         expect(topicsTasks.count()).toEqual(0);
-
 
         // first click should restore the topcs tasks
         firstTopic.click();
