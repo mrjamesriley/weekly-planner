@@ -1,8 +1,7 @@
 (function() {
 
-  var app = angular.module('planner')
-
-  app.controller('MainController', function($scope, Topic, Day, Planner, Task, $timeout) {
+  angular.module('planner').
+    controller('MainController', function($scope, Topic, Day, Planner, Task, $timeout) {
 
     $scope.today = new Date()
 
@@ -30,24 +29,5 @@
     }
 
   })
-
-  app.controller('TopicsPanelController', ['$scope', function($scope) {
-    $scope.showAll = function() { _.each($scope.topics, function(topic) { topic.visible = true }) }
-    $scope.showNone = function() { _.each($scope.topics, function(topic) { topic.visible = false }) }
-    $scope.toggleTopic = function(topic, second) { topic.visible = !topic.visible }
-  }])
-
-  app.controller('AddTaskController', ['$scope', function($scope) {
-
-    $scope.addTask = function() {
-      $scope.tasks.push($scope.taskForm)
-      $scope.taskForm = $scope.defaultTask
-    }
-
-    $scope.switchToAdd = function() {
-      $scope.taskForm = $scope.defaultTask
-    }
-
-  }])
 
 })();
