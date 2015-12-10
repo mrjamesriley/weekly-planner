@@ -5,7 +5,7 @@ module.exports = function(grunt) {
       dist: { files: { 'assets/css/planner.css': 'assets/css/planner.sass' } }
     },
     watch: {
-      files: ['assets/css/*.sass', 'assets/js/*.js'],
+      files: ['assets/css/*.sass', 'assets/js/**/*.js'],
       tasks: ['sass', 'concat']
     },
     concat: {
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
           'bower_components/angularjs/angular.js',
           'bower_components/lodash/lodash.js',
           'assets/js/planner.js',
-          'assets/js/*.js'
+          'assets/js/**/*.js',
         ],
         dest: 'assets/dist/planner.js'
       }

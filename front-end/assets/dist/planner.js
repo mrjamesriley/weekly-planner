@@ -43126,7 +43126,8 @@ angular.module('checklist-model', [])
 (function() {
 
   // define the module for our application, bringing in our module dependencies
-  angular.module('planner', ['rails', 'checklist-model'])
+  var app = angular.module('planner', ['rails', 'checklist-model'])
+  app.constant('baseResourceURL', 'http://localhost:3000/')
 
 })();
 
@@ -43186,9 +43187,8 @@ angular.module('checklist-model', [])
 
 (function() {
 
-  var app = angular.module('planner')
-
-  app.directive('lpTask', function() {
+  angular.module('planner').
+    directive('lpTask', function() {
     return {
       scope: {
         task: '=',
@@ -43202,20 +43202,12 @@ angular.module('checklist-model', [])
     }
   })
 
+}());
 
-  app.directive('lpTopic', function() {
-    return {
-      scope: {
-        topic: '=',
-        onToggle: '&'
-      },
-      restrict: 'E',
-      replace: true,
-      templateUrl: 'templates/topic.html'
-    }
-  })
+(function() {
 
-  app.directive('lpTaskForm', function() {
+  angular.module('planner').
+  directive('lpTaskForm', function() {
     return {
       scope: {
         taskForm: '=',
@@ -43229,46 +43221,46 @@ angular.module('checklist-model', [])
     }
   })
 
-})();
+}());
 
 (function() {
 
-  var app = angular.module('planner')
-
-  app.constant('baseResourceURL', 'http://localhost:3000/')
-
-  app.factory('Task', function(railsResourceFactory, baseResourceURL) {
-    var taskResource = railsResourceFactory({
-      url: baseResourceURL + 'tasks',
-      name: 'task'
-    })
-
-    taskResource.prototype.topic = function(topics) {
-      var task = this
-      return _.find(topics, function(topic) { return topic.id === task.topicId })
+  angular.module('planner').
+  directive('lpTopic', function() {
+    return {
+      scope: {
+        topic: '=',
+        onToggle: '&'
+      },
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'templates/topic.html'
     }
-
-    taskResource.prototype.deleteTask = function(day) {
-      this.daysIds = _.without(this.daysIds, day.id)
-      if(this.daysIds.length === 0) this._destroy = 1
-    }
-
-    taskResource.prototype.cssClass = function(topics) {
-      var topic = this.topic(topics)
-      if(topic) return 'task--' + topic.name.toLowerCase()
-    }
-
-    taskResource.defaultTask = {
-      name: '',
-      startTime: '',
-      daysIds: [1],
-      topicId: 1
-    }
-
-    return taskResource
   })
 
-  app.factory('Planner', function(railsResourceFactory, railsSerializer, baseResourceURL) {
+}());
+
+(function() {
+
+  angular.module('planner').
+    factory('Day', function($http, baseResourceURL) {
+
+    var daysURL = baseResourceURL + 'days'
+
+    return {
+      getDays: function() {
+        return $http({ url: daysURL })
+      }
+    }
+
+  })
+
+
+}());
+
+(function() {
+
+  angular.module('planner').factory('Planner', function(railsResourceFactory, railsSerializer, baseResourceURL) {
 
     var plannerResource = railsResourceFactory({
       url: baseResourceURL + 'planners',
@@ -43292,20 +43284,49 @@ angular.module('checklist-model', [])
 
   })
 
-  app.factory('Day', function($http, baseResourceURL) {
+}());
 
-    var daysURL = baseResourceURL + 'days'
+(function() {
 
-    return {
-      getDays: function() {
-        return $http({ url: daysURL })
+  angular.module('planner').
+    factory('Task', function(railsResourceFactory, baseResourceURL) {
+
+      var taskResource = railsResourceFactory({
+        url: baseResourceURL + 'tasks',
+        name: 'task'
+      })
+
+      taskResource.prototype.topic = function(topics) {
+        var task = this
+        return _.find(topics, function(topic) { return topic.id === task.topicId })
       }
-    }
 
-  })
+      taskResource.prototype.deleteTask = function(day) {
+        this.daysIds = _.without(this.daysIds, day.id)
+        if(this.daysIds.length === 0) this._destroy = 1
+      }
 
+      taskResource.prototype.cssClass = function(topics) {
+        var topic = this.topic(topics)
+        if(topic) return 'task--' + topic.name.toLowerCase()
+      }
 
-  app.factory('Topic', function($http, baseResourceURL) {
+      taskResource.defaultTask = {
+        name: '',
+        startTime: '',
+        daysIds: [1],
+        topicId: 1
+      }
+
+      return taskResource
+    })
+
+}());
+
+(function() {
+
+  angular.module('planner').
+    factory('Topic', function($http, baseResourceURL) {
 
     var topicsURL = baseResourceURL + 'topics'
 
@@ -43317,4 +43338,4 @@ angular.module('checklist-model', [])
 
   })
 
-})()
+}());
