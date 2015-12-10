@@ -1,6 +1,6 @@
 (function() {
 
-  var app = angular.module('planner');
+  var app = angular.module('planner')
 
   app.directive('lpTask', function() {
     return {
@@ -14,7 +14,7 @@
       replace: true,
       templateUrl: 'templates/task.html'
     }
-  });
+  })
 
 
   app.directive('lpTopic', function() {
@@ -27,18 +27,20 @@
       replace: true,
       templateUrl: 'templates/topic.html'
     }
-  });
+  })
 
   app.directive('lpTaskForm', function() {
     return {
       scope: {
         taskForm: '=',
+        topics: '=',
+        days: '=',
         onAdd: '&'
       },
       restrict: 'E',
       replace: false,
       templateUrl: 'templates/add-task-form.html'
     }
-  });
+  })
 
 })();

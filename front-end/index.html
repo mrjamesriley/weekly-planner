@@ -28,7 +28,7 @@
             <lp-task ng-repeat="task in planner.visibleTasksForDay(day, topics) | orderBy: 'startTime'" task="task" topics="topics" on-edit="editTask(task)" day="day" />
           </td>
           <td ng-controller="AddTaskController">
-            <lp-task-form task-form="taskForm" on-add="addTask()" />
+            <lp-task-form topics="topics" task-form="taskForm" days="days" on-add="addTask()" />
           </td>
         </tr>
       </tbody>

@@ -1,3 +1,4 @@
 .DS_Store
+npm-debug.log
 front-end/node_modules
 front-end/.sass-cache

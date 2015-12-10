@@ -3,11 +3,18 @@
 This folder contains the front-end for the Weekly Planner project, written in AngularJS.
 Usage instructions in this readme assume have changed into the `front-end` directory.
 
+### Development
+
+When developing the front-end, in addition to running the front and backend servers (as described in the main Readme), you'll also want to have Grunt watch running in order to generate the `planner.js` file in each save:
+
+* `grunt watch`
+
+
 ### Running tests
 
 #### Unit tests
 
-This project uses Karma for its JS unit tests.
+This project uses Karma for its JS unit tests.  
 Tests can be ran, and auto-ran with changes to files, with: `karma start test/unit-conf.js`.
 
 #### End-to-end tests
